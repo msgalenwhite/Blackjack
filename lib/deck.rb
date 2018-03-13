@@ -15,6 +15,6 @@ class Deck
         deck << Card.new(suit, value)
       end
     end
-    return deck
+    return deck.shuffle!
   end
 end
