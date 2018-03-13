@@ -5,12 +5,16 @@ class Deck
   # Your code here
   attr_reader :deck
   def initialize
+    @deck = create_deck
+  end
+
+  def create_deck
     deck = []
     SUITS.each do |suit|
       VALUES.each do |value|
         deck << Card.new(suit, value)
       end
     end
-    @deck = deck
+    return deck
   end
 end
