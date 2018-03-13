@@ -5,4 +5,8 @@ class Card
     @suit = suit
     @value = value
   end
+
+  def name
+    "the #{value} of #{suit}"
+  end
 end
