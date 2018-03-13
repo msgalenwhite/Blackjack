@@ -23,7 +23,7 @@ class Hand
   end
 
   def add_an_ace(total)
-    if total + 10 > 21
+    if total + 11 > 21
       return 1
     end
 
