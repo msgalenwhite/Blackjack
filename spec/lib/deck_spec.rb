@@ -1,7 +1,6 @@
 require "spec_helper"
 
 RSpec.describe Deck do
-  # Your tests here
   let (:test_deck) {Deck.new}
   let (:test_deck_two) {Deck.new}
 

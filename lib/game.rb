@@ -26,7 +26,7 @@ class Game
       puts "#{target_name} was dealt #{card.name}"
     end
   end
-  
+
   def display_score (player_score, dealer_score)
     player_length = player_score.to_s.length
     dealer_length = dealer_score.to_s.length
@@ -45,5 +45,4 @@ class Game
     ]
     puts board.join("\n")
   end
-
 end
