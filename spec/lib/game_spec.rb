@@ -2,6 +2,7 @@ require "spec_helper"
 
 RSpec.describe Game do
   let (:test_game) {Game.new("Sally")}
+  let (:dealer_hand) {[Card.new("Hearts", 5), Card.new("Diamonds", 10)]}
 
   describe "#deal_cards" do
     context "with no arguments" do
@@ -51,26 +52,39 @@ RSpec.describe Game do
     #
     #   expect(response).to eq("y")
     # end
+  end
 
+  describe "#display_score" do
+    it "takes in a score and outputs a board" do
+      board = [
+        "   You  Dealer",
+        "  ___________",
+        " |     |     | ",
+        " |  3  |  4  | ",
+        " |_____|_____| ",
+      ].join("\n") + "\n"
+
+      expect {test_game.display_score(3, 4)}.to output(board).to_stdout
+    end
+  end
+
+
+  describe "#dealer_turn" do
+    it "deals a card to dealer" do
+
+    end
+    it "output's dealer's total to console" do
+
+    end
+    it "displays message if score > 21" do
+
+    end
   end
 end
 
 
-  #
-  # describe "#display score"
-  #   it "outputs player and dealer score"
-  #
-  # describe "#hit"
-  #   it "deals a card to the player"
-  #   it "triggers a new calculation of hand total"
-  #   it "displays a message if total > 21"
-  #
   # describe "#stand"
   #   it "ends player's turn and starts dealer's turn"
   #   it "calculates player's final score"
   #   it "displays score to cosole"
   #
-  # describe "#dealer's turn"
-  #   it "deals a card to the dealer"
-  #   it "calculates dealer's hand total"
-  #   it "displays message if total > 21"
