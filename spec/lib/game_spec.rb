@@ -16,6 +16,10 @@ RSpec.describe Game do
       it "can store a custom name" do
         expect(test_game.player_name).to eq("Sally")
       end
+      it "will capitalize a custom name" do
+        custom = Game.new("sarah")
+        expect(custom.player_name).to eq("Sarah")
+      end
       it "can use a default name" do
         expect(test_game_two.player_name).to eq("Player")
       end
@@ -100,8 +104,6 @@ RSpec.describe Game do
       it "asks again" do
         #how do I test a loop?
 
-        # allow(test_game).to receive(:gets).and_return("pretty")
-        # expect {test_game.verify_input(test_question, test_answers)}.to output("Am I pretty? (y/n) > I didn't understand that.\n#{test_question} (#{test_answers.join("/")})\n").to_stdout
       end
     end
   end

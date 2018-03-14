@@ -1,17 +1,22 @@
 class Game
   attr_reader :player, :dealer, :player_name, :game_deck
 
-  def initialize(player_name = "Player")
+  def initialize(player_name = nil)
     game_deck = Deck.new
     @game_deck = game_deck.deck
-    @player_name = player_name
     @player = Hand.new
     @dealer = Hand.new
+    if player_name.nil?
+      @player_name = "Player"
+    else
+      player_name.capitalize!
+      @player_name = player_name
+    end
   end
 
-  def deal_cards(number = 1, target = "Player")
+  def deal_cards(number = 1, target = nil)
     cards = @game_deck.pop(number)
-    if target === "Player"
+    if target.nil?
       @player.hand.concat(cards)
       name = @player_name
     else
