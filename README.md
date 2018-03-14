@@ -13,4 +13,6 @@ I want to focus on practicing writing tests.  This has been one of my weaknesses
 ### Current Challenge
 
 - How to write tests for methods that involve user input?
+
 - How to write tests for methods that involve random elements?
+  ANSWER: In this instance, the method that was going to be outputting the strings was split into two methods.  That way I had a method whose only job was to take in arguments and output the correct strings, which is much simpler to test because you can easily control the input.
