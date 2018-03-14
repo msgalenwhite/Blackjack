@@ -32,7 +32,10 @@ class Game
     end
   end
 
-  def display_score (player_score, dealer_score)
+  def display_score
+    player_score = player.calculate_total
+    dealer_score = dealer.calculate_total
+
     player_length = player_score.to_s.length
     dealer_length = dealer_score.to_s.length
 
@@ -42,7 +45,7 @@ class Game
     line_dealer = "_"*dealer_length
 
     board = [
-      "   You  Dealer",
+      "\n   You  Dealer",
       "  __#{line_player}_____#{line_dealer}__",
       " |  #{filler_player}  |  #{filler_dealer}  | ",
       " |  #{player_score}  |  #{dealer_score}  | ",
