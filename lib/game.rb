@@ -9,33 +9,24 @@ class Game
     @dealer = Hand.new
   end
 
-  def deal_cards(number = 1, target = "player")
+  def deal_cards(number = 1, target = "Player")
     cards = @game_deck.pop(number)
-    if target === "player"
+    if target === "Player"
       @player.hand.concat(cards)
+      name = @player_name
     else
       @dealer.hand.concat(cards)
+      name = "Dealer"
+    end
+    print_cards(cards, name)
+  end
+
+  def print_cards(card_array, target_name)
+    card_array.each do |card|
+      puts "#{target_name} was dealt #{card.name}"
     end
   end
-
-  def hit_or_stand
-
-    # verify_input("Would you like to hit or stand?", ["H", "S"])
-  end
-
-  def verify_input(question, acceptable_options)
-    while true
-      print "#{question} (#{acceptable_options.join("/")})  "
-      # user_answer = gets.chomp.downcase
-      # if acceptable_options.include?(user_answer)
-      #   return user_answer
-      # else
-      #   puts "I'm sorry, I didn't understand that."
-      # end
-      break
-    end
-  end
-
+  
   def display_score (player_score, dealer_score)
     player_length = player_score.to_s.length
     dealer_length = dealer_score.to_s.length
