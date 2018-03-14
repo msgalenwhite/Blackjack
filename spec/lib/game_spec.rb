@@ -70,7 +70,7 @@ RSpec.describe Game do
       test_game.dealer.hand << Card.new("Diamonds", 4)
 
       board = [
-        "\n   You  Dealer",
+        "\n   You   Dealer",
         "  ___________",
         " |     |     | ",
         " |  2  |  4  | ",

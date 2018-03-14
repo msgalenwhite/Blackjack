@@ -12,4 +12,14 @@ name = gets.chomp.capitalize!
 new_game = Blackjack.new(name)
 new_game.first_turn
 
-new_game.verify_input("Would you like to hit or stand?", ["h", "s"])
+new_game.display_score
+
+player_response = new_game.verify_input("Would you like to hit or stand?", ["h", "s"])
+
+if player_response === "h"
+  new_game.deal_cards
+  new_game.display_score
+  
+else
+  # he stands!
+end

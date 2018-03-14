@@ -12,4 +12,11 @@ RSpec.describe Blackjack do
       expect(test_game.game_deck.length).to eq(48)
     end
   end
+  # describe "#bust?" do
+  #   it "returns true if the player or the dealer have more then 21 points" do
+  #
+  #   end
+  # end
+
+
 end

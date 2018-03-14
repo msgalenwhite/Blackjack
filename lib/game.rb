@@ -45,7 +45,7 @@ class Game
     line_dealer = "_"*dealer_length
 
     board = [
-      "\n   You  Dealer",
+      "\n   You   Dealer",
       "  __#{line_player}_____#{line_dealer}__",
       " |  #{filler_player}  |  #{filler_dealer}  | ",
       " |  #{player_score}  |  #{dealer_score}  | ",
