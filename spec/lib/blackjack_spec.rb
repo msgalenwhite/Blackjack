@@ -2,7 +2,6 @@ require "spec_helper"
 
 RSpec.describe Blackjack do
   let (:test_game) {Blackjack.new}
-  let (:test_game_two) {Blackjack.new}
 
   describe "#first_turn" do
     it "deals 2 cards to player and 2 to dealer" do
@@ -12,11 +11,7 @@ RSpec.describe Blackjack do
       expect(test_game.game_deck.length).to eq(48)
     end
   end
-  # describe "#bust?" do
-  #   it "returns true if the player or the dealer have more then 21 points" do
-  #
-  #   end
-  # end
-
-
+  describe "#dealer_turn" do
+    ###
+  end
 end

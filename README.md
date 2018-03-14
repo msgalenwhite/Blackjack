@@ -23,3 +23,6 @@ I want to focus on practicing writing tests.  This has been one of my weaknesses
 - How can I adjust my "verify_input" method to account for calling it using uppercase answers in my answer_array?
 
 - How to test for correct output when in a loop?
+
+- From instructions: "While the dealer's best possible hand is below 17, continue hitting. If the dealer's lowest score exceeds 21, output Bust! You win!."
+-- This means I need to have a way to calculate the dealer's LOWEST score, not highest
