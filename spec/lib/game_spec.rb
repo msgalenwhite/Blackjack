@@ -4,6 +4,18 @@ RSpec.describe Game do
   let (:test_game) {Game.new("Sally")}
   let (:dealer_hand) {[Card.new("Hearts", 5), Card.new("Diamonds", 10)]}
 
+  describe "#initialize" do
+    it "is a Game object" do
+      expect(test_game).to be_a(Game)
+    end
+    it "has a player hand" do
+      expect(test_game.player).to be_a(Hand)
+    end
+    it "has a dealer hand" do
+      expect(test_game.player).to be_a(Hand)
+    end
+  end
+
   describe "#deal_cards" do
     context "with no arguments" do
       it "adds 1 card to player's hand" do
@@ -30,28 +42,8 @@ RSpec.describe Game do
     end
 
     it "prints a message to console with what the player was dealt" do
-      #how do I test this when it will be random?
-    end
-  end
 
-  describe "#hit_or_stand" do
-    it "prompts for user's hit or stand" do
-      # expect { test_game.hit_or_stand }.to output("testing").to_stdout
     end
-  #   it "prevents invalid input"
-  #   it "accepts upper and lower case input"
-  end
-
-  describe "#verify_input" do
-    it "outputs a question and possible answers" do
-      expect {test_game.verify_input("Am I pretty?", ["y", "n"])}.to output("Am I pretty? (y/n)  ").to_stdout
-    end
-    # it "accepts input" do
-    #   allow(user_answer).to receive(:gets).and_return("y")
-    #   response = user_answer.gets
-    #
-    #   expect(response).to eq("y")
-    # end
   end
 
   describe "#display_score" do
@@ -67,24 +59,4 @@ RSpec.describe Game do
       expect {test_game.display_score(3, 4)}.to output(board).to_stdout
     end
   end
-
-
-  describe "#dealer_turn" do
-    it "deals a card to dealer" do
-
-    end
-    it "output's dealer's total to console" do
-
-    end
-    it "displays message if score > 21" do
-
-    end
-  end
 end
-
-
-  # describe "#stand"
-  #   it "ends player's turn and starts dealer's turn"
-  #   it "calculates player's final score"
-  #   it "displays score to cosole"
-  #
