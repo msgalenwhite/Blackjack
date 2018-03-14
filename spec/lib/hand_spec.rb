@@ -39,6 +39,13 @@ RSpec.describe Hand do
         test_hand.hand << Card.new("Hearts", "A")
         expect(test_hand.calculate_total).to eq(21)
       end
+      it "can add multiple aces" do
+        test_hand.hand << Card.new("Hearts", "A")
+        test_hand.hand << Card.new("Diamonds", "A")
+        test_hand.hand << Card.new("Clubs", "A")
+        
+        expect(test_hand.calculate_total).to eq(13)
+      end
     end
   end
 end

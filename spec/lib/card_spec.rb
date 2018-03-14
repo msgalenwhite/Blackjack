@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe Card do
   let (:test_card) {Card.new("Hearts", "A")}
 
-  context "#initialize" do
+  describe "#initialize" do
     it "is a Card object" do
       expect(test_card).to be_a(Card)
     end
