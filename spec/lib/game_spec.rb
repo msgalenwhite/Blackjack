@@ -4,34 +4,54 @@ RSpec.describe Game do
   let (:test_game) {Game.new("Sally")}
 
   describe "#deal_cards" do
-    it "with no arguments, 1 card is added to a player's hand" do
-      test_game.deal_cards
-      expect(test_game.player.hand.length).to eq(1)
-      expect(test_game.game_deck.length).to eq(51)
+    context "with no arguments" do
+      it "adds 1 card to player's hand" do
+        test_game.deal_cards
+        expect(test_game.player.hand.length).to eq(1)
+        expect(test_game.game_deck.length).to eq(51)
+      end
     end
 
-    it "with 1 argument, it adds that number of cards to the player's hand" do
-      test_game.deal_cards(5)
-      expect(test_game.player.hand.length).to eq(5)
-      expect(test_game.game_deck.length).to eq(47)
+    context "with 1 argument" do
+      it "takes in a number and adds that many cards to player's hand" do
+        test_game.deal_cards(5)
+        expect(test_game.player.hand.length).to eq(5)
+        expect(test_game.game_deck.length).to eq(47)
+      end
     end
 
-    it "with 2 arguments, it adds that number of cards to the dealer's deck" do
-      test_game.deal_cards(5, "dealer")
-      expect(test_game.dealer.hand.length).to eq(5)
-      expect(test_game.game_deck.length).to eq(47)
+    context "with 2 arguments" do
+      it "takes in a number, and adds that number of cards to the dealer's hand" do
+        test_game.deal_cards(5, "dealer")
+        expect(test_game.dealer.hand.length).to eq(5)
+        expect(test_game.game_deck.length).to eq(47)
+      end
     end
 
     it "prints a message to console with what the player was dealt" do
-
+      #how do I test this when it will be random?
     end
   end
 
   describe "#hit_or_stand" do
-    # describe "#hit_or_stand"
-    #   it "prompts for user's hit or stand"
-    #   it "prevents invalid input"
-    #   it "accepts upper and lower case input"
+    it "prompts for user's hit or stand" do
+      # expect { test_game.hit_or_stand }.to output("testing").to_stdout
+    end
+  #   it "prevents invalid input"
+  #   it "accepts upper and lower case input"
+  end
+
+  describe "#verify_input" do
+    it "outputs a question and possible answers" do
+      expect {test_game.verify_input("Am I pretty?", ["y", "n"])}.to output("Am I pretty? (y/n)  ").to_stdout
+    end
+    # it "accepts input" do
+    #   allow(user_answer).to receive(:gets).and_return("y")
+    #   response = user_answer.gets
+    #
+    #   expect(response).to eq("y")
+    # end
+
   end
 end
 
