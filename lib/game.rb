@@ -45,4 +45,14 @@ class Game
     ]
     puts board.join("\n")
   end
+
+  def verify_input (question, answer_array)
+    print "#{question} (#{answer_array.join("/")}) > "
+    user_answer = gets.chomp.downcase
+    until answer_array.include?(user_answer)
+      print "I didn't understand that.\n#{question} (#{answer_array.join("/")}) > "
+      user_answer = gets.chomp.downcase
+    end
+    user_answer
+  end
 end

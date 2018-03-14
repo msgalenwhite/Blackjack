@@ -74,4 +74,35 @@ RSpec.describe Game do
       expect {test_game.display_score(3, 4)}.to output(board).to_stdout
     end
   end
+
+  describe "#verify_input" do
+    let (:test_game) {Game.new}
+    let (:test_question) {"Am I pretty?"}
+    let (:test_answers) {["y", "n"]}
+
+    it "outputs a question and possible answers" do
+      allow(test_game).to receive(:gets).and_return("y")
+      expect {test_game.verify_input(test_question, test_answers)}.to output("Am I pretty? (y/n) > ").to_stdout
+    end
+
+    context "input is valid" do
+      it "returns user's answer" do
+        allow(test_game).to receive(:gets).and_return("y")
+        expect(test_game.verify_input(test_question, test_answers)).to eq("y")
+      end
+      it "accepts uppercase and lowercase inputs" do
+        allow(test_game).to receive(:gets).and_return("Y")
+        expect(test_game.verify_input(test_question, test_answers)).to eq("y")
+      end
+    end
+
+    context "input is invalid" do
+      it "asks again" do
+        #how do I test a loop?
+
+        # allow(test_game).to receive(:gets).and_return("pretty")
+        # expect {test_game.verify_input(test_question, test_answers)}.to output("Am I pretty? (y/n) > I didn't understand that.\n#{test_question} (#{test_answers.join("/")})\n").to_stdout
+      end
+    end
+  end
 end

@@ -1,20 +1,6 @@
 require "spec_helper"
 
-describe "#verify_input" do
-  let (:test_game) {Game.new}
-  # it "outputs a question and possible answers" do
-  #   expect {test_game.verify_input("Am I pretty?", ["y", "n"])}.to output("Am I pretty? (y/n)  ").to_stdout
-  # end
-  # context "input is invalid" do
-  #
-  # end
-  # it "valid input" do
-  #   allow(user_answer).to receive(:gets).and_return("y")
-  #   response = user_answer.gets
-  #
-  #   expect(response).to eq("y")
-  # end
-end
+
 
 # xdescribe "#hit_or_stand" do
 #   it "prompts for user's hit or stand" do
