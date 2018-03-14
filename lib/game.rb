@@ -1,17 +1,22 @@
 class Game
   attr_reader :player, :dealer, :player_name, :game_deck
 
-  def initialize(player_name = "Player")
+  def initialize(player_name = nil)
     game_deck = Deck.new
     @game_deck = game_deck.deck
-    @player_name = player_name
     @player = Hand.new
     @dealer = Hand.new
+    if player_name.nil?
+      @player_name = "Player"
+    else
+      player_name.capitalize!
+      @player_name = player_name
+    end
   end
 
-  def deal_cards(number = 1, target = "Player")
+  def deal_cards(number = 1, target = nil)
     cards = @game_deck.pop(number)
-    if target === "Player"
+    if target.nil?
       @player.hand.concat(cards)
       name = @player_name
     else
@@ -27,7 +32,10 @@ class Game
     end
   end
 
-  def display_score (player_score, dealer_score)
+  def display_score
+    player_score = player.calculate_total
+    dealer_score = dealer.calculate_total
+
     player_length = player_score.to_s.length
     dealer_length = dealer_score.to_s.length
 
@@ -37,7 +45,7 @@ class Game
     line_dealer = "_"*dealer_length
 
     board = [
-      "   You  Dealer",
+      "\n   You   Dealer",
       "  __#{line_player}_____#{line_dealer}__",
       " |  #{filler_player}  |  #{filler_dealer}  | ",
       " |  #{player_score}  |  #{dealer_score}  | ",
