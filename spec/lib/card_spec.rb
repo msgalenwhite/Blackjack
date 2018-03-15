@@ -14,6 +14,7 @@ RSpec.describe Card do
       expect(test_card.value).to eq("A")
     end
   end
+  
   describe "#name" do
     it "can return a string with its name" do
       expect(test_card.name).to eq("the A of Hearts")

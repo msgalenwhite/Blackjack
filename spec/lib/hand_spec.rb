@@ -17,7 +17,6 @@ RSpec.describe Hand do
     before(:each) do
       test_hand.hand = []
     end
-
     it "can sum number cards" do
       test_hand.hand << Card.new("Hearts", 10)
       expect(test_hand.calculate_total).to eq(10)
@@ -27,6 +26,7 @@ RSpec.describe Hand do
       test_hand.hand << Card.new("Hearts", "K")
       expect(test_hand.calculate_total).to eq(20)
     end
+    
     context "card to add is an ace" do
       it "can add as a 1" do
         test_hand.hand << Card.new("Hearts", 10)
@@ -43,7 +43,7 @@ RSpec.describe Hand do
         test_hand.hand << Card.new("Hearts", "A")
         test_hand.hand << Card.new("Diamonds", "A")
         test_hand.hand << Card.new("Clubs", "A")
-        
+
         expect(test_hand.calculate_total).to eq(13)
       end
     end

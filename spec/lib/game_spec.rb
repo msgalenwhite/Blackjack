@@ -64,6 +64,7 @@ RSpec.describe Game do
       expect { test_game.print_cards(dealer_hand, "Dealer") }.to output("Dealer was dealt the 5 of Hearts\nDealer was dealt the 10 of Diamonds\n").to_stdout
     end
   end
+  
   describe "#display_score" do
     it "takes in a score and outputs a board" do
       test_game.player.hand << Card.new("Hearts", 2)

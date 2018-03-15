@@ -11,6 +11,7 @@ RSpec.describe Blackjack do
       expect(test_game.game_deck.length).to eq(48)
     end
   end
+
   describe "#dealer_turn" do
     ###
   end
