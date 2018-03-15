@@ -1,9 +1,9 @@
 require "spec_helper"
 
 RSpec.describe Game do
-  let (:test_game) {Game.new("Sally")}
-  let (:test_game_two) {Game.new}
-  let (:dealer_hand) {[Card.new("Hearts", 5), Card.new("Diamonds", 10)]}
+  let (:test_game) { Game.new("Sally") }
+  let (:test_game_two) { Game.new }
+  let (:dealer_hand) { [Card.new("Hearts", 5), Card.new("Diamonds", 10)] }
 
   describe "#initialize" do
     it "is a Game object" do
@@ -12,6 +12,7 @@ RSpec.describe Game do
     it "has a deck" do
       expect(test_game.game_deck).to be_a(Array)
     end
+
     context "stores a player's name" do
       it "can store a custom name" do
         expect(test_game.player_name).to eq("Sally")
@@ -24,6 +25,7 @@ RSpec.describe Game do
         expect(test_game_two.player_name).to eq("Player")
       end
     end
+
     it "has a player hand" do
       expect(test_game.player).to be_a(Hand)
     end
@@ -40,6 +42,7 @@ RSpec.describe Game do
         expect(test_game.game_deck.length).to eq(51)
       end
     end
+
     context "with 1 argument" do
       it "takes in a number and adds that many cards to player's hand" do
         test_game.deal_cards(5)
@@ -47,6 +50,7 @@ RSpec.describe Game do
         expect(test_game.game_deck.length).to eq(47)
       end
     end
+
     context "with 2 arguments" do
       it "takes in a number, and adds that number of cards to the dealer's hand" do
         test_game.deal_cards(5, "dealer")
@@ -64,7 +68,7 @@ RSpec.describe Game do
       expect { test_game.print_cards(dealer_hand, "Dealer") }.to output("Dealer was dealt the 5 of Hearts\nDealer was dealt the 10 of Diamonds\n").to_stdout
     end
   end
-  
+
   describe "#display_score" do
     it "takes in a score and outputs a board" do
       test_game.player.hand << Card.new("Hearts", 2)
@@ -83,9 +87,9 @@ RSpec.describe Game do
   end
 
   describe "#verify_input" do
-    let (:test_game) {Game.new}
-    let (:test_question) {"Am I pretty?"}
-    let (:test_answers) {["y", "n"]}
+    let(:test_game) { Game.new }
+    let(:test_question) { "Am I pretty?" }
+    let(:test_answers) { ["y", "n"] }
 
     it "outputs a question and possible answers" do
       allow(test_game).to receive(:gets).and_return("y")

@@ -3,6 +3,7 @@ VALUES = [2,3,4,5,6,7,8,9,10, "A", "K", "Q", "J"]
 
 class Deck
   attr_reader :deck
+  
   def initialize
     @deck = create_deck
   end

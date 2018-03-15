@@ -1,5 +1,4 @@
 class Hand
-  # Your code here
   attr_accessor :hand
 
   def initialize
