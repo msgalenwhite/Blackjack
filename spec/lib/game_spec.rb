@@ -58,6 +58,13 @@ RSpec.describe Game do
         expect(test_game.game_deck.length).to eq(47)
       end
     end
+
+    xcontext "with 3 arguments" do
+      it "takes in optional argument to determine if a card will be face-down" do
+        test_game.deal_cards(5, "dealer", "down")
+
+      end
+    end
   end
 
   describe "#print_cards" do

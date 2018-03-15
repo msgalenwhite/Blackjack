@@ -25,4 +25,4 @@ I want to focus on practicing writing tests.  This has been one of my weaknesses
 - How to test for correct output when in a loop?
 
 - From instructions: "While the dealer's best possible hand is below 17, continue hitting. If the dealer's lowest score exceeds 21, output Bust! You win!."
--- This means I need to have a way to calculate the dealer's LOWEST score, not highest
+-- Make sure that we aren't using an ace to get an 11 and then bust when it would be okay with a 1

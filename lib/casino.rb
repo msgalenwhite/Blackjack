@@ -8,10 +8,13 @@ puts "Welcome to Blackjack!"
 puts "If you would like to enter your name, either do so now or press enter."
 name = gets.chomp.capitalize!
 new_game = Blackjack.new(name)
+
 new_game.first_turn
 new_game.display_score
+
 player_turn = true
 dealer_turn = false
+
 if new_game.player.calculate_total === 21 || new_game.dealer.calculate_total === 21
   puts "BLACKJACK!"
   player_turn = false
